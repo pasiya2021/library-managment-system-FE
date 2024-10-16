@@ -9,7 +9,10 @@ const Sidebar = () => {
     { icon: FaUser, text: 'Users', path: '/users' },
     { icon: FaUserPlus, text: 'Add User', path: '/add-user', active: true },
     { icon: FaShoppingCart, text: 'View All Books', path: '/view-all-books' },
-    { icon: FaWarehouse, text: 'Warehouses', path: '/warehouses' },
+    { icon: FaWarehouse, text: 'Add Books', path: '/add-books' },
+    { icon: FaCog, text: 'Settings', path: '/settings' },
+    { icon: FaSignOutAlt, text: 'Logout', path: '/logout' },
+    
   ];
 
   return (
@@ -31,16 +34,6 @@ const Sidebar = () => {
           </a>
         ))}
       </nav>
-      <div className="mt-auto">
-        <a href="/settings" className="flex items-center py-2 px-4 hover:bg-indigo-800 rounded">
-          <FaCog className="mr-3" />
-          Settings
-        </a>
-        <a href="/logout" className="flex items-center py-2 px-4 hover:bg-indigo-800 rounded">
-          <FaSignOutAlt className="mr-3" />
-          Logout
-        </a>
-      </div>
     </div>
   );
 };
