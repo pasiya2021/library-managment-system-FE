@@ -7,10 +7,10 @@ const AddUserForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    username: '',
+    userName: '',
     email: '',
     address: '',
-    phoneNo: ''
+    phoneNumber: ''
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -41,10 +41,10 @@ const AddUserForm = () => {
       setFormData({       // Reset form fields
         firstName: '',
         lastName: '',
-        username: '',
+        userName: '',
         email: '',
         address: '',
-        phoneNo: ''
+        phoneNumber: ''
       });
     } catch (err) {
       console.error("API Error: ", err);  // Log any errors
@@ -64,9 +64,9 @@ const AddUserForm = () => {
       firstName: '',
       lastName: '',
       email: '',
-      username: '',
+      userName: '',
       address: '',
-      phoneNo: ''
+      phoneNumber: ''
     });
     setError(null);
     setSuccess(false);
@@ -76,10 +76,10 @@ const AddUserForm = () => {
     <form onSubmit={handleSubmit} className="w-full max-w-lg">
       <InputField label="First Name" id="firstName" value={formData.firstName} onChange={handleChange} />
       <InputField label="Last Name" id="lastName" value={formData.lastName} onChange={handleChange} />
-      <InputField label="Username" id="username" value={formData.username} onChange={handleChange} />
+      <InputField label="User Name" id="userName" value={formData.userName} onChange={handleChange} />
       <InputField label="Email" type="email" id="email" value={formData.email} onChange={handleChange} />
       <InputField label="Address" id="address" value={formData.address} onChange={handleChange} />
-      <InputField label="Phone No" type="tel" id="phoneNo" value={formData.phoneNo} onChange={handleChange} />
+      <InputField label="Phone No" type="tel" id="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
       {success && <p className="text-green-500 mb-4">User added successfully!</p>}
@@ -115,7 +115,7 @@ export default AddUserForm;
 //     <InputField label="First Name" />
 //     <InputField label="Last Name" />
 //     <InputField label="Email" type="email" />
-//     <InputField label="Username" />
+//     <InputField label="userName" />
 //     <InputField label="Address" />
 //     <InputField label="Phone No" type="tel" />
 //     <div className="flex items-center justify-between">
