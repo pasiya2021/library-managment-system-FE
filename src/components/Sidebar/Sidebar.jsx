@@ -8,7 +8,7 @@ const Sidebar = () => {
     { icon: RiDashboardLine, text: 'Dashboard', path: '/' },
     { icon: FaUser, text: 'Users', path: '/users' },
     { icon: FaUserPlus, text: 'Add User', path: '/add-user', active: true },
-    { icon: FaShoppingCart, text: 'View All Books', path: '/orders' },
+    { icon: FaShoppingCart, text: 'View All Books', path: '/view-all-books' },
     { icon: FaWarehouse, text: 'Warehouses', path: '/warehouses' },
   ];
 

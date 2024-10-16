@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AddUserPage from '../pages/AddUserPage/AddUserPage';
-import UserTable from '../pages/UserTablePage/UserTablePage';
+import UserTablepage from '../pages/UserTablePage/UserTablePage';
+import BookTablepage from '../pages/BookTablePage/BookTablePage';
 import Ust from '../components/UserTable/UserTable';
 
 
@@ -10,8 +11,9 @@ const WebRoutes = () => {
     <Router>
       <Routes>
        
-        <Route path="/" element={<AddUserPage />} />
-        <Route path="users" element={<UserTable />} />
+        <Route path="/add-user" element={<AddUserPage />} />
+        <Route path="/users" element={<UserTablepage />} />
+        <Route path="/view-all-books" element={<BookTablepage />} />
         
         
       </Routes>
