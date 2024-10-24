@@ -4,6 +4,8 @@ import AddUserPage from '../pages/AddUserPage/AddUserPage';
 import UserTablePage from '../pages/UserTablePage/UserTablePage';
 import BookTablePage from '../pages/BookTablePage/BookTablePage';
 import AddBookPage from '../pages/AddBookPage/AddBookPage';
+import SignupPage from '../pages/SignupPage/SignupPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
 
 
 
@@ -16,6 +18,8 @@ const WebRoutes = () => {
         <Route path="/users" element={<UserTablePage />} />
         <Route path="/view-all-books" element={<BookTablePage />} />
         <Route path="/add-books" element={<AddBookPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
         
         
       </Routes>
@@ -23,4 +27,4 @@ const WebRoutes = () => {
   );
 };
 
-export default WebRoutes;
+export default WebRoutes; 
