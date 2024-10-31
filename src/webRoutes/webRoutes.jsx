@@ -6,6 +6,7 @@ import BookTablePage from '../pages/BookTablePage/BookTablePage';
 import AddBookPage from '../pages/AddBookPage/AddBookPage';
 import SignupPage from '../pages/SignupPage/SignupPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
+import BorrowBookPage from '../pages/BorrowBookPage/BorrowBookPage';
 
 
 
@@ -20,7 +21,7 @@ const WebRoutes = () => {
         <Route path="/add-books" element={<AddBookPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        
+        <Route path="/borrow" element={<BorrowBookPage />} />
         
       </Routes>
     </Router>

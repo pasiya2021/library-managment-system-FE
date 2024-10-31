@@ -10,7 +10,7 @@ const Sidebar = () => {
     { icon: FaUserPlus, text: 'Add User', path: '/add-user', active: true },
     { icon: FaShoppingCart, text: 'View All Books', path: '/view-all-books' },
     { icon: FaWarehouse, text: 'Add Books', path: '/add-books' },
-    { icon: FaCog, text: 'Settings', path: '/settings' },
+    { icon: FaCog, text: 'Borrow Books', path: '/borrow' },
     { icon: FaSignOutAlt, text: 'Logout', path: '/logout' },
     
   ];
