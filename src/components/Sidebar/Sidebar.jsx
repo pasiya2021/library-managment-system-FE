@@ -1,18 +1,20 @@
-import React from 'react';
 import { FaUser, FaUserPlus, FaShoppingCart, FaWarehouse, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { RiDashboardLine } from 'react-icons/ri';
+import { useLocation } from 'react-router-dom';
 import Logo from '../../assets/images/Logo.png';
 
 const Sidebar = () => {
+  const location = useLocation(); // Get current location
+
   const menuItems = [
-    { icon: RiDashboardLine, text: 'Dashboard', path: '/' },
+    
+    { icon: RiDashboardLine, text: 'Dashboard', path: '/dashboard' },
     { icon: FaUser, text: 'Users', path: '/users' },
-    { icon: FaUserPlus, text: 'Add User', path: '/add-user', active: true },
+    { icon: FaUserPlus, text: 'Add User', path: '/add-user' },
     { icon: FaShoppingCart, text: 'View All Books', path: '/view-all-books' },
     { icon: FaWarehouse, text: 'Add Books', path: '/add-books' },
     { icon: FaCog, text: 'Borrow Books', path: '/borrow' },
     { icon: FaSignOutAlt, text: 'Logout', path: '/logout' },
-    
   ];
 
   return (
@@ -26,7 +28,7 @@ const Sidebar = () => {
             key={index}
             href={item.path}
             className={`flex items-center py-2 px-4 rounded ${
-              item.active ? 'bg-indigo-800' : 'hover:bg-indigo-800'
+              location.pathname === item.path ? 'bg-indigo-800' : 'hover:bg-indigo-800'
             }`}
           >
             <item.icon className="mr-3" />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Pencil, Trash2, X } from 'lucide-react';
 
@@ -8,6 +8,8 @@ const BookTable = () => {
   const [error, setError] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingBook, setEditingBook] = useState(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [bookToDelete, setBookToDelete] = useState(null);
 
   useEffect(() => {
     fetchBooks();
@@ -31,16 +33,23 @@ const BookTable = () => {
     setIsEditModalOpen(true);
   };
 
-  const handleDelete = async (isbn) => {
-    if (window.confirm('Are you sure you want to delete this book?')) {
+  const handleDelete = (isbn) => {
+    setBookToDelete(isbn);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (bookToDelete) {
       try {
-        await axios.delete(`http://localhost:8080/book/delete/${isbn}`);
+        await axios.delete(`http://localhost:8080/book/delete/${bookToDelete}`);
         fetchBooks();
       } catch (error) {
         console.error('Error deleting book:', error);
         alert('Failed to delete book. Please try again.');
       }
     }
+    setIsDeleteModalOpen(false);
+    setBookToDelete(null);
   };
 
   const handleUpdate = async (e) => {
@@ -125,9 +134,7 @@ const BookTable = () => {
               <form onSubmit={handleUpdate} className="space-y-4">
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Title
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                     <input
                       type="text"
                       value={editingBook?.title || ''}
@@ -137,9 +144,7 @@ const BookTable = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Author
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Author</label>
                     <input
                       type="text"
                       value={editingBook?.author || ''}
@@ -149,9 +154,7 @@ const BookTable = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Category
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
                     <input
                       type="text"
                       value={editingBook?.category || ''}
@@ -161,9 +164,7 @@ const BookTable = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Quantity
-                    </label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
                     <input
                       type="number"
                       value={editingBook?.qty || ''}
@@ -189,6 +190,32 @@ const BookTable = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {isDeleteModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg max-w-md w-full">
+            <div className="p-6">
+              <h2 className="text-xl font-semibold text-gray-900">Confirm Delete</h2>
+              <p className="mt-2 text-gray-600">Are you sure you want to delete this book? This action cannot be undone.</p>
+              <div className="flex justify-end gap-2 mt-6">
+                <button
+                  onClick={() => setIsDeleteModalOpen(false)}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmDelete}
+                  className="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </div>

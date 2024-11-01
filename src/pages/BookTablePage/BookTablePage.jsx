@@ -1,4 +1,3 @@
-import React from 'react';
 import BookTable from '../../components/BookTable/BookTable';
 import Sidebar from '../../components/Sidebar/Sidebar';
 

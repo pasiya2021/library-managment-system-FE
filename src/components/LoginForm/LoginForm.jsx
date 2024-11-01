@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import illustrationImage from '../../assets/images/rb_64279.png';
 
@@ -53,7 +53,7 @@ const LoginForm = () => {
               </button>
 
               <div className="text-center text-sm">
-                <span className="text-gray-600">Do you havn't account? </span>
+                <span className="text-gray-600">Do you havn&apos;t account? </span>
                 <a href="#" className="text-indigo-600 hover:underline">Signup here</a>
               </div>
             </form>

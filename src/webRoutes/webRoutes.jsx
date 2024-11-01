@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AddUserPage from '../pages/AddUserPage/AddUserPage';
 import UserTablePage from '../pages/UserTablePage/UserTablePage';
@@ -20,7 +19,7 @@ const WebRoutes = () => {
         <Route path="/view-all-books" element={<BookTablePage />} />
         <Route path="/add-books" element={<AddBookPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/borrow" element={<BorrowBookPage />} />
         
       </Routes>

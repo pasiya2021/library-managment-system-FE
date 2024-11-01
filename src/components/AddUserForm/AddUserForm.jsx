@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import InputField from '../InputField/InputField';
-import { api, API_ENDPOINTS } from '../../config/api'; 
 import axios from 'axios';
 
 const AddUserForm = () => {
