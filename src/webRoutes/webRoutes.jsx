@@ -6,6 +6,7 @@ import AddBookPage from '../pages/AddBookPage/AddBookPage';
 import SignupPage from '../pages/SignupPage/SignupPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import BorrowBookPage from '../pages/BorrowBookPage/BorrowBookPage';
+import DashboardPage from '../pages/DashboardPage/DashboardPage';
 
 
 
@@ -14,6 +15,7 @@ const WebRoutes = () => {
     <Router>
       <Routes>
        
+       <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/add-user" element={<AddUserPage />} />
         <Route path="/users" element={<UserTablePage />} />
         <Route path="/view-all-books" element={<BookTablePage />} />

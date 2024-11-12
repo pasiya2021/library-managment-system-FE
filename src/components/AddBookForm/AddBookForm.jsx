@@ -78,7 +78,7 @@ const AddUserForm = () => {
     
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
-      {success && <p className="text-green-500 mb-4">User added successfully!</p>}
+      {success && <p className="text-green-500 mb-4">Book added successfully!</p>}
       
       <div className="flex items-center justify-between">
         <button
