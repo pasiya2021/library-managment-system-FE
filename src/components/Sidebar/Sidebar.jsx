@@ -14,7 +14,7 @@ const Sidebar = () => {
     { icon: FaShoppingCart, text: 'View All Books', path: '/view-all-books' },
     { icon: FaWarehouse, text: 'Add Books', path: '/add-books' },
     { icon: FaCog, text: 'Borrow Books', path: '/borrow' },
-    { icon: FaSignOutAlt, text: 'Logout', path: '/logout' },
+    { icon: FaSignOutAlt, text: 'Logout', path: '/' },
   ];
 
   return (
