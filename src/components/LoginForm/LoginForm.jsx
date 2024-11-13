@@ -15,14 +15,14 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/admin/sign-up', {
+      const response = await axios.post('http://localhost:8080/admin/sign-in', {
         email,
         password,
       });
 
-      if (response.status === 200) {
-        // Assuming the server responds with a success status when login is successful
-        navigate('/add-user');  // Redirect to add-user page
+      if (response.data === 'Admin signed in successfully') {
+       
+        navigate('/dashboard');  
       } else {
         setErrorMessage('Invalid login credentials. Please try again.');
       }
@@ -34,7 +34,7 @@ const LoginForm = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg overflow-hidden flex">
-        {/* Left Panel */}
+       
         <div className="w-2/5 bg-indigo-900 p-8 flex flex-col hidden md:block">
           <div className="text-white">
             <div className="mb-2">Hello!</div>
@@ -49,7 +49,7 @@ const LoginForm = () => {
           </div>
         </div>
 
-        {/* Right Panel */}
+        
         <div className="flex-1 p-8">
           <div className="flex justify-end mb-4">
             <select className="bg-transparent border-none text-gray-600 focus:ring-0">

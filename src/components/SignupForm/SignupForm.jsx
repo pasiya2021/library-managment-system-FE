@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import axios from 'axios';
 import illustrationImage from '../../assets/images/rb_64279.png';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
   const [fullName, setFullName] = useState('');
@@ -12,6 +13,7 @@ const SignupForm = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const navigate = useNavigate();
 
   // Email validation function
   const isValidEmail = (email) => {
@@ -46,6 +48,8 @@ const SignupForm = () => {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
+
+        navigate('/dashboard');
       } else {
         setErrorMessage("Signup failed. Please try again.");
       }
